@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wills Point Volunteer Fire Department</title>
+  <meta name="description" content="Official site for the Wills Point Volunteer Fire Department featuring services, community support, events calendar, and photo highlights." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero" id="top">
+    <nav class="top-nav container">
+      <a class="brand" href="#top">WPVFD</a>
+      <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#volunteer">Volunteer Team</a></li>
+        <li><a href="#events">Town Events</a></li>
+        <li><a href="#gallery">Photo Showcase</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-content container">
+      <p class="eyebrow">Wills Point, Texas</p>
+      <h1>Wills Point Volunteer Fire Department</h1>
+      <p class="intro">
+        Serving our neighbors with emergency response, prevention, and preparedness. We are proudly <strong>100% volunteer firefighters</strong> committed to protecting lives, property, and community spirit.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="#volunteer">Become a Volunteer</a>
+        <a class="btn secondary" href="#events">See Community Events</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container" id="services">
+      <h2>How We Serve</h2>
+      <p class="section-lead">Our team responds around the clock and helps the community prepare before emergencies happen.</p>
+      <div class="cards">
+        <article class="card">
+          <h3>Emergency Fire Response</h3>
+          <p>Rapid response to structure, grass, and vehicle fires with coordinated incident command and mutual aid support.</p>
+        </article>
+        <article class="card">
+          <h3>Rescue & Public Safety Support</h3>
+          <p>Assistance at vehicle incidents, severe weather events, and community safety operations in partnership with local agencies.</p>
+        </article>
+        <article class="card">
+          <h3>Fire Prevention & Education</h3>
+          <p>School visits, smoke alarm awareness, and practical fire safety guidance to reduce risk for homes and local businesses.</p>
+        </article>
+        <article class="card">
+          <h3>Community Standby</h3>
+          <p>Visible support at town events and seasonal activities so families can gather with confidence and peace of mind.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split" id="volunteer">
+      <div class="container split-grid">
+        <div>
+          <h2>Powered by Volunteers</h2>
+          <p>
+            Every call, every drill, and every public event is made possible by dedicated volunteers. From new recruits to experienced firefighters,
+            our department depends on neighbors helping neighbors.
+          </p>
+          <ul class="checklist">
+            <li>No prior fire experience required to start</li>
+            <li>Ongoing training and mentorship opportunities</li>
+            <li>Flexible ways to serve: operations, support, and outreach</li>
+          </ul>
+          <a class="btn primary" href="#contact">Ask About Joining</a>
+        </div>
+        <aside class="callout">
+          <h3>Volunteer Snapshot</h3>
+          <dl>
+            <div><dt>Mission</dt><dd>Protect life, property, and community resilience.</dd></div>
+            <div><dt>Coverage</dt><dd>Wills Point and surrounding support zones.</dd></div>
+            <div><dt>Commitment</dt><dd>Service-first, training-focused, team-driven.</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section container" id="events">
+      <div class="section-head">
+        <div>
+          <h2>Town Events Calendar</h2>
+          <p class="section-lead">Easy to update: edit <code>data/events.json</code> and refresh the page.</p>
+        </div>
+        <div class="calendar-controls">
+          <button id="prev-month" aria-label="Previous month">◀</button>
+          <h3 id="calendar-title"></h3>
+          <button id="next-month" aria-label="Next month">▶</button>
+        </div>
+      </div>
+
+      <div class="calendar-grid" id="calendar-grid" aria-live="polite"></div>
+
+      <h3 class="upcoming-heading">Upcoming Highlights</h3>
+      <div id="upcoming-events" class="upcoming-list"></div>
+    </section>
+
+    <section class="section container" id="gallery">
+      <h2>Community Photo Showcase</h2>
+      <p class="section-lead">Post action photos, training moments, school visits, and community support highlights.</p>
+      <div id="gallery-grid" class="gallery-grid"></div>
+      <p class="muted">To update photos, edit <code>data/gallery.json</code> with image URLs, captions, and alt text.</p>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container footer-grid">
+      <div>
+        <h2>Contact WPVFD</h2>
+        <p>For non-emergency questions, volunteer interest, or event coordination, reach out to the department through city channels.</p>
+        <p class="small">Emergency: Call 911</p>
+      </div>
+      <div>
+        <h3>Website Notes</h3>
+        <ul>
+          <li>Built in dynamic HTML/CSS/JS for immediate use</li>
+          <li>Structured for future migration to PHP/XML content sources</li>
+          <li>Calendar + gallery are data-driven for simple updates</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

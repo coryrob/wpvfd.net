@@ -1,0 +1,20 @@
+[
+  {
+    "image": "https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?auto=format&fit=crop&w=1200&q=80",
+    "title": "Emergency Response Readiness",
+    "caption": "Volunteers preparing equipment before deployment.",
+    "alt": "Firefighters in turnout gear preparing near a fire engine"
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1200&q=80",
+    "title": "Training & Skill Development",
+    "caption": "Routine drills that keep our team sharp and safe.",
+    "alt": "Volunteer firefighters training with hoses"
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
+    "title": "Community Support",
+    "caption": "Serving the town at local events and outreach programs.",
+    "alt": "Community event with safety personnel"
+  }
+]
