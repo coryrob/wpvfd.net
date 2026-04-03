@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wills Point Volunteer Fire Department | Gallery</title>
+  <meta name="description" content="Browse photos from the Wills Point Volunteer Fire Department including training, apparatus, events, and community service.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/site.js" defer></script>
+  <script src="js/gallery-data.js" defer></script>
+  <script src="js/gallery.js" defer></script>
+</head>
+<body data-page="gallery">
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="utility-bar">
+        <div class="utility-inner">
+          <p>Emergency: <a href="tel:911">Dial 911</a></p>
+          <p>Non-Emergency: <a href="tel:19038733011">(903) 873-3011</a></p>
+        </div>
+      </div>
+      <div class="nav-wrap">
+        <nav class="navbar" aria-label="Main navigation">
+          <a class="brand" href="index.html">
+            <img src="images/wpfd-badge.svg" alt="Wills Point Volunteer Fire Department badge" width="58" height="58">
+            <span class="brand-text">
+              <strong>Wills Point</strong>
+              <span>Volunteer Fire Department</span>
+            </span>
+          </a>
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+          <div class="nav-links" id="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="community.html">Community</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+            <a class="nav-cta" href="community.html#support">Support Us</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero page-hero-brand">
+        <div class="container narrow reveal">
+          <p class="eyebrow">Photo Gallery</p>
+          <h1>The people, apparatus, training, and community moments behind WPVFD.</h1>
+          <p class="lead dark">
+            This gallery is organized so the department can keep adding photos over time and group
+            them by training, apparatus, incidents, and community events.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section-tight">
+        <div class="container gallery-intro-grid">
+          <article class="panel feature-panel reveal">
+            <p class="card-label">Organized Albums</p>
+            <h2>Built for growth instead of a single long photo dump.</h2>
+            <p>
+              Photos can be grouped into albums and filtered by category so visitors can quickly
+              browse what they want to see.
+            </p>
+          </article>
+          <article class="panel small-panel reveal reveal-delay">
+            <p class="card-label">Easy To Maintain</p>
+            <p>Add images to the gallery folder, update the data list, and they will appear here automatically.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="gallery-toolbar reveal">
+            <div class="gallery-toolbar-copy">
+              <p class="section-label">Browse Photos</p>
+              <h2>Filter by what you want to see.</h2>
+            </div>
+            <div class="gallery-filters" id="gallery-filters" aria-label="Gallery filters"></div>
+          </div>
+          <div class="album-grid" id="album-grid"></div>
+          <div class="gallery-grid" id="gallery-grid"></div>
+          <div class="gallery-empty panel" id="gallery-empty" hidden>
+            <p class="card-label">No Photos Yet</p>
+            <h3>The gallery is ready for uploads.</h3>
+            <p>
+              Add image files into <code>images/gallery/</code> and register them in
+              <code>js/gallery-data.js</code> to publish them here.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <img src="images/wpfd-badge.svg" alt="" width="48" height="48">
+          <div>
+            <strong>Wills Point Volunteer Fire Department</strong>
+            <p>Serving Wills Point with volunteer commitment and emergency readiness.</p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="community.html">Community</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <dialog class="gallery-lightbox" id="gallery-lightbox" aria-label="Photo viewer">
+    <button class="lightbox-close" type="button" id="lightbox-close" aria-label="Close photo viewer">Close</button>
+    <div class="lightbox-layout">
+      <img id="lightbox-image" alt="">
+      <div class="lightbox-copy">
+        <p class="card-label" id="lightbox-album"></p>
+        <h2 id="lightbox-title"></h2>
+        <p id="lightbox-description"></p>
+      </div>
+    </div>
+  </dialog>
+</body>
+</html>

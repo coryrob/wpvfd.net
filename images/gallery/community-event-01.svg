@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Community gallery placeholder</title>
+  <desc id="desc">Illustrated placeholder for a Wills Point Volunteer Fire Department community event photo.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#6f160f"/>
+      <stop offset="100%" stop-color="#d2a23d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="260" cy="460" r="72" fill="#fffaf3"/>
+  <circle cx="430" cy="430" r="64" fill="#fffaf3" opacity=".92"/>
+  <circle cx="585" cy="470" r="72" fill="#fffaf3"/>
+  <rect x="250" y="545" width="380" height="120" rx="28" fill="#fffaf3" opacity=".94"/>
+  <text x="110" y="170" fill="#fff8ef" font-family="Barlow Condensed, Arial, sans-serif" font-size="42" letter-spacing="5">WPVFD GALLERY</text>
+  <text x="110" y="300" fill="#fff8ef" font-family="Barlow Condensed, Arial, sans-serif" font-size="100" font-weight="700">COMMUNITY</text>
+  <text x="110" y="380" fill="#fff8ef" font-family="Public Sans, Arial, sans-serif" font-size="34">Use this slot for event outreach, school visits, and local support photos.</text>
+</svg>
