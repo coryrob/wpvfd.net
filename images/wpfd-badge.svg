@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">Wills Point Fire Department Badge</title>
+  <desc id="desc">A stylized fire department badge in red, gold, and ivory for Wills Point Fire Department.</desc>
+  <path fill="#70120d" d="M60 6 76 18l20-2 2 20 16 24-16 24-2 20-20-2-16 12-16-12-20 2-2-20L6 60l16-24 2-20 20 2z"/>
+  <path fill="#d8a63c" d="M60 14 73 24l16-1 1 16 13 21-13 21-1 16-16-1-13 10-13-10-16 1-1-16-13-21 13-21 1-16 16 1z"/>
+  <circle cx="60" cy="60" r="29" fill="#fff7ec"/>
+  <path fill="#b12519" d="M60 36c8 8 12 14 12 22 0 9-6 16-12 16s-12-7-12-16c0-8 4-14 12-22Z"/>
+  <path fill="#70120d" d="M60 44c5 5 7 9 7 14 0 5-3 9-7 9s-7-4-7-9c0-5 2-9 7-14Z"/>
+  <path fill="#d8a63c" d="M59 29h2v14h-2zm0 48h2v14h-2zM29 59h14v2H29zm48 0h14v2H77z"/>
+  <text x="60" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#70120d">WPFD</text>
+</svg>
