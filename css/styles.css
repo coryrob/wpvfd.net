@@ -389,6 +389,9 @@ h3 {
 
 .action-grid,
 .card-grid,
+.gallery-intro-grid,
+.album-grid,
+.gallery-grid,
 .service-grid-wide,
 .contact-grid-wide {
   display: grid;
@@ -397,6 +400,10 @@ h3 {
 
 .action-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.gallery-intro-grid {
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
 }
 
 .split-layout {
@@ -415,6 +422,16 @@ h3 {
 
 .card-grid.single-column {
   grid-template-columns: 1fr;
+}
+
+.album-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.5rem;
+}
+
+.gallery-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.5rem;
 }
 
 .service-grid-wide,
@@ -439,6 +456,16 @@ h3 {
   background:
     linear-gradient(135deg, rgba(173, 35, 23, 0.08), rgba(210, 162, 61, 0.14)),
     var(--surface);
+}
+
+.album-card {
+  border: 1px solid var(--line);
+  border-radius: 1.5rem;
+  padding: 1.4rem;
+  background:
+    linear-gradient(135deg, rgba(173, 35, 23, 0.08), rgba(210, 162, 61, 0.18)),
+    var(--surface);
+  box-shadow: var(--shadow);
 }
 
 .small-panel {
@@ -475,6 +502,150 @@ h3 {
 .info-list {
   display: grid;
   gap: 1rem;
+}
+
+.gallery-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: end;
+}
+
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.filter-chip {
+  border: 1px solid rgba(31, 37, 44, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--ink);
+  padding: 0.7rem 1rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.filter-chip:hover,
+.filter-chip:focus-visible,
+.filter-chip.is-active {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff8ef;
+  transform: translateY(-1px);
+}
+
+.gallery-card {
+  display: grid;
+  gap: 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  text-align: left;
+  cursor: pointer;
+}
+
+.gallery-card-media {
+  aspect-ratio: 4 / 3;
+  background:
+    linear-gradient(145deg, rgba(93, 16, 13, 0.92), rgba(173, 35, 23, 0.72)),
+    linear-gradient(180deg, #5d100d, #ad2317);
+  overflow: hidden;
+}
+
+.gallery-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-card-copy {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1.2rem;
+}
+
+.gallery-card-meta {
+  color: var(--brand);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gallery-card strong {
+  font-size: 1.12rem;
+}
+
+.gallery-card span:last-child {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.gallery-empty {
+  margin-top: 1.5rem;
+}
+
+.gallery-lightbox {
+  width: min(1080px, calc(100% - 2rem));
+  border: 0;
+  border-radius: 1.75rem;
+  padding: 0;
+  overflow: hidden;
+  background: #150908;
+  color: #fff8ef;
+}
+
+.gallery-lightbox::backdrop {
+  background: rgba(11, 10, 14, 0.72);
+  backdrop-filter: blur(8px);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  border: 1px solid rgba(255, 248, 239, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff8ef;
+  padding: 0.65rem 0.9rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lightbox-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+}
+
+.lightbox-layout img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.lightbox-copy {
+  display: grid;
+  align-content: center;
+  gap: 0.9rem;
+  padding: 2rem;
+}
+
+.lightbox-copy p {
+  margin: 0;
+  line-height: 1.65;
+  color: rgba(255, 248, 239, 0.84);
 }
 
 .info-item {
@@ -581,9 +752,12 @@ h3 {
 @media (max-width: 980px) {
   .hero-grid,
   .action-grid,
+  .gallery-intro-grid,
   .split-layout,
   .two-column,
   .card-grid,
+  .album-grid,
+  .gallery-grid,
   .service-grid-wide,
   .contact-grid-wide {
     grid-template-columns: 1fr;
@@ -597,6 +771,13 @@ h3 {
   .support-band {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .gallery-toolbar,
+  .lightbox-layout {
+    grid-template-columns: 1fr;
+    display: grid;
+    align-items: start;
   }
 }
 
@@ -632,6 +813,14 @@ h3 {
     flex-direction: column;
   }
 
+  .gallery-filters {
+    width: 100%;
+  }
+
+  .filter-chip {
+    flex: 1 1 auto;
+  }
+
   .stack-list li,
   .info-item {
     grid-template-columns: 1fr;
@@ -644,5 +833,13 @@ h3 {
 
   .stack-list a {
     text-align: left;
+  }
+
+  .lightbox-copy {
+    padding: 1.25rem;
+  }
+
+  .lightbox-layout img {
+    min-height: 280px;
   }
 }
