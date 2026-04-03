@@ -680,6 +680,42 @@ h3 {
   color: #fff8ef;
 }
 
+.notice-banner {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.4rem 1.5rem;
+  border: 1px solid rgba(173, 35, 23, 0.14);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(135deg, rgba(173, 35, 23, 0.08), rgba(210, 162, 61, 0.18)),
+    var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.event-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.event-card {
+  border: 1px solid var(--line);
+  border-radius: 1.5rem;
+  padding: 1.35rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.event-date {
+  margin: 0 0 0.65rem;
+  color: var(--brand);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
 .support-band .section-label {
   color: #f2c76c;
 }
@@ -769,6 +805,11 @@ h3 {
   }
 
   .support-band {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .notice-banner {
     flex-direction: column;
     align-items: flex-start;
   }
