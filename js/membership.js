@@ -8,10 +8,10 @@ if (membershipGrid) {
     if (!member || !member.name || !member.rank) return;
 
     const rankParts = member.rank.match(/^(.+?)\s*\((.+)\)$/);
-    const rankName = rankParts ? rankParts[1] : member.rank;
-    const groupName = rankName.includes("Chief")
+    const rankName = (rankParts ? rankParts[1] : member.rank).split(" / ")[0];
+    const groupName = member.group || (rankName.includes("Chief")
       ? "Chief Officers"
-      : rankName === "Firefighter" ? "Firefighters" : rankName;
+      : rankName === "Firefighter" ? "Firefighters" : rankName);
     if (!rankGroups.has(groupName)) {
       rankGroups.set(groupName, []);
     }
@@ -38,6 +38,7 @@ if (membershipGrid) {
     portrait.className = "member-portrait";
     const fallback = document.createElement("p");
     fallback.className = "member-photo-fallback";
+    fallback.textContent = "Photo coming soon";
     portrait.append(fallback);
 
     if (member.photo) {

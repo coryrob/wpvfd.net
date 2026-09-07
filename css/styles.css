@@ -266,6 +266,14 @@ a {
   background: linear-gradient(180deg, rgba(255, 250, 243, 0.78), rgba(244, 233, 220, 0.34));
 }
 
+body[data-page="about"] .page-hero {
+  text-align: center;
+}
+
+body[data-page="about"] .page-hero .lead {
+  margin-inline: auto;
+}
+
 .hero-grid,
 .split-layout,
 .two-column {
@@ -323,6 +331,10 @@ h3 {
 
 .lead.dark {
   color: var(--muted);
+}
+
+body[data-page="membership"] .page-hero .lead {
+  max-width: none;
 }
 
 .button-row {
@@ -500,9 +512,28 @@ h3 {
 .member-photo-fallback {
   position: absolute;
   inset: 0;
+  margin: 0;
+  padding: 1.25rem;
   align-content: center;
   text-align: center;
-  color: var(--muted);
+  color: #fff4eb;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(210, 162, 61, 0.18), transparent 65%),
+    linear-gradient(145deg, #481715, #28110f);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.member-photo-fallback::before {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 88px;
+  margin: 0 auto 1.15rem;
+  background: url("../images/wpfd-patch.png") center / contain no-repeat;
+  opacity: 0.8;
 }
 
 .member-details {
@@ -638,9 +669,109 @@ h3 {
   background: var(--surface-alt);
 }
 
+.apparatus-engine-2-photo {
+  object-fit: cover;
+  object-position: center 58%;
+}
+
 
 .gallery-intro-grid {
   grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
+}
+
+.community-copy {
+  max-width: 960px;
+}
+
+.community-copy h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.1;
+}
+
+.community-copy h3 {
+  margin: 1rem 0 0.4rem;
+  color: var(--brand);
+}
+
+.community-topics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.community-topics a {
+  padding: 0.65rem 0.9rem;
+  border: 1px solid currentColor;
+  border-radius: 0.5rem;
+  color: var(--brand);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.community-topics a:hover,
+.community-topics a:focus-visible {
+  background: var(--brand);
+  color: #fff4eb;
+}
+
+.community-faq {
+  padding: 0.5rem 0;
+}
+
+.community-faq summary {
+  cursor: pointer;
+  color: var(--brand);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.community-faq[open] summary {
+  margin-bottom: 0.75rem;
+}
+
+body[data-page="community"] .section {
+  padding: 1.5rem 0;
+}
+
+body[data-page="community"] .page-hero {
+  padding: 2rem 0 1.5rem;
+  text-align: center;
+}
+
+body[data-page="community"] .section-contrast {
+  border: 0;
+}
+
+body[data-page="community"] .section-copy {
+  margin: 0.65rem 0;
+  line-height: 1.5;
+}
+
+body[data-page="community"] .detail-list {
+  display: block;
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+body[data-page="community"] .detail-list li {
+  padding: 0;
+  margin: 0.3rem 0;
+  border: 0;
+  line-height: 1.45;
+  break-inside: avoid;
+}
+
+body[data-page="community"] .button-row {
+  margin-top: 1rem;
+}
+
+@media (min-width: 720px) {
+  .community-copy .detail-list {
+    columns: 2;
+    column-gap: 2.5rem;
+  }
 }
 
 .split-layout {
