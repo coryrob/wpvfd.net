@@ -449,6 +449,23 @@ h3 {
 
 .membership-grid {
   display: grid;
+  gap: 2rem;
+}
+
+.membership-rank-group {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.membership-rank-heading {
+  margin: 0;
+  color: var(--brand);
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.membership-rank-grid {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(0, 220px));
   justify-content: center;
   gap: 1rem;
@@ -492,6 +509,7 @@ h3 {
   flex: 1;
   padding: 0.85rem 1rem 1rem;
   border-top: 3px solid var(--brand);
+  text-align: center;
 }
 
 .member-details h3 {
@@ -515,7 +533,7 @@ h3 {
 }
 
 @media (max-width: 560px) {
-  .membership-grid {
+  .membership-rank-grid {
     grid-template-columns: minmax(0, 220px);
     max-width: 220px;
     margin-inline: auto;
@@ -542,6 +560,84 @@ h3 {
 .action-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+
+.station-apparatus-grid {
+  margin-top: 1.5rem;
+}
+
+.info-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.25rem 0 0;
+}
+
+.station-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+}
+
+.info-list div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.info-list dt {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.info-list dd {
+  margin: 0;
+}
+
+.apparatus-inventory-panel {
+  margin-top: 1rem;
+}
+
+.apparatus-category + .apparatus-category {
+  margin-top: 2rem;
+}
+
+.apparatus-category > h4 {
+  margin: 0 0 0.85rem;
+  color: var(--brand);
+}
+
+.apparatus-entry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.apparatus-entry {
+  min-width: 0;
+}
+
+.apparatus-entry h5 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.apparatus-photo {
+  display: block;
+  width: min(100%, 460px);
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+}
+
+.apparatus-engine-photo {
+  height: 260px;
+  object-fit: contain;
+  background: var(--surface-alt);
+}
+
 
 .gallery-intro-grid {
   grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);

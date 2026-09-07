@@ -2,8 +2,34 @@ const membershipGrid = document.getElementById("membership-grid");
 const members = Array.isArray(window.membershipData) ? window.membershipData : [];
 
 if (membershipGrid) {
+  const rankGroups = new Map();
+
   members.forEach((member) => {
     if (!member || !member.name || !member.rank) return;
+
+    const rankParts = member.rank.match(/^(.+?)\s*\((.+)\)$/);
+    const rankName = rankParts ? rankParts[1] : member.rank;
+    const groupName = rankName.includes("Chief")
+      ? "Chief Officers"
+      : rankName === "Firefighter" ? "Firefighters" : rankName;
+    if (!rankGroups.has(groupName)) {
+      rankGroups.set(groupName, []);
+    }
+    rankGroups.get(groupName).push({ member, rankParts });
+  });
+
+  rankGroups.forEach((groupMembers, rankName) => {
+    const rankGroup = document.createElement("section");
+    rankGroup.className = "membership-rank-group";
+    const heading = document.createElement("h3");
+    heading.className = "membership-rank-heading";
+    heading.textContent = rankName;
+    const rankGrid = document.createElement("div");
+    rankGrid.className = "membership-rank-grid";
+    rankGroup.append(heading, rankGrid);
+    membershipGrid.append(rankGroup);
+
+    groupMembers.forEach(({ member, rankParts }) => {
 
     const card = document.createElement("article");
     card.className = "panel member-card";
@@ -12,7 +38,6 @@ if (membershipGrid) {
     portrait.className = "member-portrait";
     const fallback = document.createElement("p");
     fallback.className = "member-photo-fallback";
-    fallback.textContent = "Photo coming soon";
     portrait.append(fallback);
 
     if (member.photo) {
@@ -31,7 +56,6 @@ if (membershipGrid) {
     details.className = "member-details";
     const rank = document.createElement("p");
     rank.className = "member-rank";
-    const rankParts = member.rank.match(/^(.+?)\s*\((.+)\)$/);
     rank.textContent = rankParts ? rankParts[1] : member.rank;
     const name = document.createElement("h3");
     name.textContent = member.name;
@@ -43,8 +67,8 @@ if (membershipGrid) {
       details.append(assignment);
     }
     card.append(portrait, details);
-    membershipGrid.append(card);
+    rankGrid.append(card);
+    });
   });
 
-  document.getElementById("membership-empty").hidden = membershipGrid.childElementCount > 0;
 }
