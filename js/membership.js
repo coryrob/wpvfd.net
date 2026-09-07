@@ -19,8 +19,8 @@ if (membershipGrid) {
       const image = document.createElement("img");
       image.alt = member.name;
       image.loading = "lazy";
-      image.width = 480;
-      image.height = 600;
+      image.width = 880;
+      image.height = 1100;
       image.addEventListener("load", () => { fallback.hidden = true; });
       image.addEventListener("error", () => { image.remove(); fallback.hidden = false; });
       image.src = member.photo;
