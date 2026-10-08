@@ -23,7 +23,7 @@ window.membershipData = [
   { name: "Cory Roberts", rank: "Firefighter", photo: "" },
   { name: "Monica Schulze", rank: "Firefighter / EMT-B", photo: "" },
   { name: "Ryan Tucker", rank: "Firefighter", photo: "" },
-  { name: "Brittany Crain", rank: "Rehab", photo: "images/members/brittany-crain.webp?v=2" },
+  { name: "Brittany Crain", rank: "Rehab", photo: "images/members/brittany-crain.webp?v=3" },
   { name: "Delany Crain", rank: "Rehab", photo: "" },
   { name: "Yana Hill", rank: "Rehab", photo: "images/members/yana-hill.webp?v=2" },
   { name: "Ashlee Jolly", rank: "Rehab", photo: "images/members/ashlee-jolly.webp?v=2" },
