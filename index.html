@@ -17,6 +17,7 @@
   >
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/site.js" defer></script>
+  <script src="js/burn-ban.js" defer></script>
 </head>
 <body data-page="home">
   <div class="site-shell">
@@ -53,11 +54,10 @@
 
     <main>
       <section class="container burn-ban-card" aria-labelledby="burn-ban-heading">
-        <!-- Manually maintained: verify the county source and update the status and checked date together. -->
-        <div class="burn-ban-summary">
+        <div class="burn-ban-summary" role="status" aria-live="polite">
           <p class="burn-ban-label">Van Zandt County Burn Ban Status</p>
-          <h2 id="burn-ban-heading">Burn ban in effect</h2>
-          <p>Reported by the County Fire Marshal. Checked <time datetime="2026-09-06">September 6, 2026</time>.</p>
+          <h2 id="burn-ban-heading">Check current burn ban status</h2>
+          <p id="burn-ban-detail">Use the county link to confirm current restrictions.</p>
         </div>
         <div class="burn-ban-actions">
           <a class="button button-primary" href="https://www.vanzandtcounty.org/page/vanzandt.FireMarshal" target="_blank" rel="noreferrer">Check Latest County Status</a>

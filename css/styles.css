@@ -194,6 +194,13 @@ a {
   color: var(--brand-deep);
 }
 
+.burn-ban-card[data-status="inactive"],
+.burn-ban-card[data-status="unknown"] {
+  border-color: #687078;
+  background: #f3f4f5;
+  color: #303840;
+}
+
 .burn-ban-card h2 {
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   line-height: 1.1;
