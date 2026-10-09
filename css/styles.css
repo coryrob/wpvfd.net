@@ -681,6 +681,14 @@ body[data-page="membership"] .page-hero .lead {
   object-position: center 58%;
 }
 
+.apparatus-brush-3-photo {
+  width: min(100%, 260px);
+  height: auto;
+  aspect-ratio: 1;
+  margin-inline: auto;
+  transform: rotate(90deg);
+}
+
 
 .gallery-intro-grid {
   grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
