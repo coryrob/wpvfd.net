@@ -27,9 +27,10 @@ async function send(message) {
     const result = await transport.sendMail({
       ...message,
       from: process.env.APPLICATION_FROM_EMAIL || 'WPVFD Applications <operations@wpvfd.net>',
-      attachments: message.attachments.map(file => ({ ...file, encoding: 'base64' }))
+      attachments: (message.attachments || []).map(file => ({ ...file, encoding: 'base64' }))
     });
-    if (!result.accepted?.some(address => String(address).toLowerCase() === 'officers@wpvfd.net')) {
+    const recipients = Array.isArray(message.to) ? message.to : [message.to];
+    if (!recipients.every(recipient => result.accepted?.some(address => String(address).toLowerCase() === recipient.toLowerCase()))) {
       throw new Error('SMTP server did not accept the recipient.');
     }
   } finally {

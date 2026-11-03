@@ -145,7 +145,7 @@ module.exports = async function (context, req) {
         to: ['officers@wpvfd.net'],
         replyTo: data.values.email,
         messageId: `<application.${req.body.submissionId}.${digest}@wpvfd.net>`,
-        subject: `WPVFD membership application: ${data.values.firstName} ${data.values.lastName}`,
+        subject: `NEW APP FROM WEBSITE: ${data.values.firstName} ${data.values.lastName}`,
         text: `A membership application was submitted through the WPVFD website.\nReference: ${req.body.submissionId}\n\nThe applicant accepted the certification/background authorization, physical/drug screening consent, and electronic signature acknowledgment. Typed signatures appear in the attached packet. The PDF includes a full-answer appendix for longer responses.\n\n${answers}\n\nThe attached files were supplied by the applicant.`,
         attachments: [{ filename: 'WPVFD-completed-application.pdf', content: pdf }, ...data.attachments]
     });

@@ -1,5 +1,14 @@
 # Membership applications
 
+The Contact page also includes an information request form. Its
+`/api/information-requests` endpoint uses the same SMTP and Turnstile settings
+below, and emails requests to **Chief@wpvfd.net** and **asstchief@wpvfd.net**.
+Reply-to is the requester's email. Both recipients must be accepted by SMTP
+before the page confirms success. The form does not store requests in a database.
+Deploy the Contact page, its JavaScript, and API together through the existing
+Azure workflow. Verify delivery to both inboxes after deployment.
+Run `node --test tests/information-requests.test.cjs` for mocked delivery checks.
+
 The join links open `application.html`. Applicants can download the fillable PDF,
 or complete the online form, electronically sign the authorizations, and attach a
 driver license copy plus supporting documents. The Azure Function sends the

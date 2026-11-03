@@ -1175,6 +1175,7 @@ body[data-page="community"] .button-row {
 .application-field { display: flex; flex-direction: column; gap: 0.45rem; font-weight: 600; min-width: 0; }
 .application-field input, .application-field select, .application-field textarea { width: 100%; min-height: 46px; border: 1px solid #777; border-radius: 5px; padding: 0.65rem; font: inherit; background: #fff; color: #222; }
 .application-field textarea { resize: vertical; }
+#information-request-form .application-field { margin-bottom: 1rem; }
 .application-wide { grid-column: 1 / -1; }
 .application-form :focus-visible { outline: 3px solid #a54021; outline-offset: 3px; }
 .application-check { display: flex; align-items: flex-start; gap: 0.7rem; margin: 1.2rem 0; }

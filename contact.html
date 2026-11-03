@@ -14,6 +14,7 @@
   >
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/site.js" defer></script>
+  <script src="js/information-request.js" defer></script>
 </head>
 <body data-page="contact">
   <div class="site-shell">
@@ -86,9 +87,21 @@
           <section class="panel contact-panel reveal" aria-labelledby="information-request-heading">
             <p class="card-label">Information Request</p>
             <h3 id="information-request-heading">Request information from the department.</h3>
-            <p>Our information request form is coming soon. In the meantime, call <a href="tel:19038733011">(903) 873-3011</a> for assistance.</p>
-            <!-- Add the information request form URL as href when the form is available, and remove aria-disabled. -->
-            <p><a class="text-link" role="link" aria-disabled="true">Information Request Form — Coming soon</a></p>
+            <p>Send a non-emergency question to the Chief and Assistant Chief. For emergencies, call <a href="tel:911">911</a>. This form is not monitored for emergency response.</p>
+            <p id="request-availability" role="status">Loading online requests...</p>
+            <form id="information-request-form">
+              <div class="application-field"><label for="request-name">Name (required)</label><input id="request-name" name="name" autocomplete="name" maxlength="120" required></div>
+              <div class="application-field"><label for="request-email">Email (required)</label><input id="request-email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
+              <div class="application-field"><label for="request-phone">Phone (optional)</label><input id="request-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+              <div class="application-field"><label for="request-subject">Subject (required)</label><input id="request-subject" name="subject" maxlength="160" required></div>
+              <div class="application-field"><label for="request-message">What information do you need? (required)</label><textarea id="request-message" name="message" rows="6" maxlength="5000" required></textarea></div>
+              <div hidden aria-hidden="true"><label for="request-website">Leave blank</label><input id="request-website" name="website" tabindex="-1" autocomplete="off"></div>
+              <div id="request-security"></div>
+              <p>Your contact details and request will be emailed to the Chief and Assistant Chief so they can respond.</p>
+              <button class="button button-primary" type="submit" disabled>Send information request</button>
+            </form>
+            <p id="request-status" role="status" tabindex="-1"></p>
+            <noscript>Please enable JavaScript to send a request, or call (903) 873-3011.</noscript>
           </section>
         </div>
       </section>
