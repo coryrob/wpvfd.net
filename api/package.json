@@ -1,0 +1,12 @@
+{
+  "name": "wpvfd-applications-api",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "22.x"
+  },
+  "dependencies": {
+    "nodemailer": "^10.3.1",
+    "pdf-lib": "1.17.1"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "platform": { "apiRuntime": "node:22" },
+  "routes": [
+    { "route": "/gallery", "redirect": "/", "statusCode": 302 },
+    { "route": "/gallery.html", "redirect": "/", "statusCode": 302 },
+    { "route": "/api/*", "headers": { "Cache-Control": "no-store" } },
+    { "route": "/tests/*", "statusCode": 404 },
+    { "route": "/scripts/*", "statusCode": 404 },
+    { "route": "/APPLICATION_SETUP.md", "statusCode": 404 }
+  ]
+}

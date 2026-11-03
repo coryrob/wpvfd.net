@@ -1168,6 +1168,26 @@ body[data-page="community"] .button-row {
   }
 }
 
+.application-copy { max-width: 960px; }
+.application-section { border: 1px solid #d8d2ca; border-radius: 12px; padding: 1.4rem; margin: 0 0 1.7rem; min-width: 0; }
+.application-section legend { font-family: "Barlow Condensed", sans-serif; font-size: 1.65rem; font-weight: 700; padding: 0 0.5rem; }
+.application-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; }
+.application-field { display: flex; flex-direction: column; gap: 0.45rem; font-weight: 600; min-width: 0; }
+.application-field input, .application-field select, .application-field textarea { width: 100%; min-height: 46px; border: 1px solid #777; border-radius: 5px; padding: 0.65rem; font: inherit; background: #fff; color: #222; }
+.application-field textarea { resize: vertical; }
+.application-wide { grid-column: 1 / -1; }
+.application-form :focus-visible { outline: 3px solid #a54021; outline-offset: 3px; }
+.application-check { display: flex; align-items: flex-start; gap: 0.7rem; margin: 1.2rem 0; }
+.application-check input { width: 20px; height: 20px; flex: 0 0 20px; margin-top: 0.2rem; }
+.application-consent-copy { white-space: pre-line; }
+#application-consents details { margin-bottom: 1rem; }
+#application-consents summary { cursor: pointer; font-weight: 700; }
+#application-status:not(:empty) { padding: 1.25rem; border: 2px solid #3c6541; border-radius: 8px; margin: 1rem 0; }
+#application-status.application-error { border-color: #a12c20; }
+.application-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+.application-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+@media (max-width: 640px) { .application-grid { grid-template-columns: 1fr; } .application-section { padding: 1rem; } }
+
 @media (max-width: 980px) {
   .hero-grid,
   .action-grid,
