@@ -1,4 +1,5 @@
 const smtp = require('../shared/smtp');
+const requestHost = require('../shared/request-host');
 
 function validate(body) {
   if (!body || typeof body !== 'object' || Array.isArray(body) || body.website) throw new Error('Unable to submit this request.');
@@ -20,9 +21,9 @@ module.exports = async (context, req) => {
   if (req.method === 'GET') { reply(200, { available, siteKey: process.env.TURNSTILE_SITE_KEY || null }); return; }
   if (req.method !== 'POST') { reply(405, { error: 'Method not allowed.' }); return; }
   if (!available) { reply(503, { error: 'Online requests are unavailable. Please call (903) 873-3011.' }); return; }
-  const host = req.headers?.['x-forwarded-host'] || req.headers?.host;
+  let host;
   try {
-    if (req.headers?.origin && new URL(req.headers.origin).host !== host) throw new Error();
+    host = requestHost(req.headers);
   } catch { reply(403, { error: 'Submit your request from the department website.' }); return; }
   if (Number(req.headers?.['content-length']) > 40000 || Buffer.byteLength(JSON.stringify(req.body ?? '')) > 40000) { reply(413, { error: 'Your request is too long.' }); return; }
   let values;

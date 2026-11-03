@@ -4,6 +4,7 @@ const path = require('node:path');
 const { PDFDocument, StandardFonts, rgb } = require('pdf-lib');
 const sections = require('../shared/schema.json');
 const smtp = require('../shared/smtp');
+const requestHost = require('../shared/request-host');
 const fields = sections.flatMap(section => section.fields);
 const MAX_FILES = 6;
 const MAX_BYTES = 6 * 1024 * 1024;
@@ -120,12 +121,9 @@ module.exports = async function (context, req) {
   }
   if (req.method !== 'POST') { reply(405, { error: 'Method not allowed.' }); return; }
   if (!configuration()) { reply(503, { error: 'Online applications are temporarily unavailable. Call (903) 873-3011 or use the downloadable packet.' }); return; }
-  const origin = req.headers?.origin;
-  const host = req.headers?.['x-forwarded-host'] || req.headers?.host;
-  if (origin) {
-    try { if (new URL(origin).host !== host) { reply(403, { error: 'Submit the application from the department website.' }); return; } }
-    catch { reply(403, { error: 'Invalid request origin.' }); return; }
-  }
+  let host;
+  try { host = requestHost(req.headers); }
+  catch { reply(403, { error: 'Submit the application from the department website.' }); return; }
   if (Number(req.headers?.['content-length']) > 9 * 1024 * 1024 || Buffer.byteLength(JSON.stringify(req.body ?? '')) > 9 * 1024 * 1024) { reply(413, { error: 'Attachments must total 6 MB or less.' }); return; }
   let data;
   try { data = validate(req.body); }

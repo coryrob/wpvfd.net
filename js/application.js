@@ -6,6 +6,7 @@
   const availability = document.querySelector('#application-availability');
   let widgetId;
   let securityToken = '';
+  let onlineAvailable = false;
   const submissionId = crypto.randomUUID();
   let sending = false;
   const today = new Date();
@@ -79,10 +80,15 @@
     status.textContent = text;
     status.classList.toggle('application-error', error);
     status.focus();
+    status.scrollIntoView({ block: 'center', behavior: 'smooth' });
   }
+  // Handle validation here so blocked submissions also display a visible reason.
+  form.noValidate = true;
+  submit.disabled = false;
   function resetSecurity() {
     securityToken = '';
-    submit.disabled = true;
+    submit.disabled = sending;
+    availability.textContent = 'Complete the security check again before submitting.';
     if (widgetId !== undefined) window.turnstile.reset(widgetId);
   }
   async function setup() {
@@ -91,13 +97,14 @@
       if (!response.ok) throw new Error();
       const config = await response.json();
       if (!config.available || !config.siteKey) throw new Error();
+      onlineAvailable = true;
       window.applicationSecurityReady = () => {
         widgetId = window.turnstile.render('#application-security', {
           sitekey: config.siteKey,
           action: 'membership',
           callback: token => { securityToken = token; submit.disabled = sending; },
           'expired-callback': resetSecurity,
-          'error-callback': () => { securityToken = ''; submit.disabled = true; availability.textContent = 'The security check could not load. Refresh this page to try again.'; }
+          'error-callback': () => { securityToken = ''; availability.textContent = 'The security check could not load. Refresh this page to try again.'; }
         });
       };
       const script = document.createElement('script');
@@ -120,7 +127,17 @@
   }
   form.addEventListener('submit', async event => {
     event.preventDefault();
-    if (sending || !form.reportValidity()) return;
+    if (sending) return;
+    if (!form.checkValidity()) {
+      const invalid = form.querySelector(':invalid');
+      const label = invalid?.labels?.[0]?.textContent.trim().replace(/\s+/g, ' ') || invalid?.name || 'a required field';
+      message(`Your application has not been sent. Check ${label}: ${invalid?.validationMessage || 'Complete this field.'}`, true);
+      invalid?.focus();
+      invalid?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      form.reportValidity();
+      return;
+    }
+    if (!onlineAvailable) { message('Your application has not been sent. Online submission is unavailable or still loading. Please try again shortly or call (903) 873-3011.', true); return; }
     if (!securityToken) { message('Complete the security check before submitting.', true); return; }
     const files = [...form.elements.driverLicenseCopy.files, ...form.elements.supportingDocuments.files];
     if (files.length > 6 || files.reduce((sum, file) => sum + file.size, 0) > 6 * 1024 * 1024) {
@@ -142,6 +159,7 @@
       const attachments = await Promise.all(files.map(readFile));
       const response = await fetch('/api/applications', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
+        signal: AbortSignal.timeout(120000),
         body: JSON.stringify({ submissionId, values, attachments, turnstileToken: securityToken, website: form.elements.website.value,
           certificationAccepted: form.elements.certificationAccepted.checked,
           screeningAccepted: form.elements.screeningAccepted.checked,
@@ -153,11 +171,12 @@
       availability.textContent = '';
       message(`Thank you. Your application has been sent to the department for review. Your reference number is ${result.reference}. The department will contact you about next steps.`);
     } catch (error) {
-      message(`${error.message} Your answers have been kept on this page.`, true);
+      const explanation = error.name === 'TimeoutError' ? 'Delivery confirmation timed out. Call (903) 873-3011 to check whether your application arrived before retrying.' : error.message;
+      message(`${explanation} Your answers have been kept on this page.`, true);
       resetSecurity();
     } finally {
       sending = false;
-      submit.disabled = !securityToken;
+      submit.disabled = false;
       submit.textContent = 'Submit application';
       form.removeAttribute('aria-busy');
     }

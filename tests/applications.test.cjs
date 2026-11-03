@@ -152,6 +152,17 @@ test('provider failures never report success and do not expose provider response
   assert.equal(ctx.res.body.success, undefined);
   assert.ok(!JSON.stringify(ctx.res).includes('test-mail-id'));
 });
+
+test('public website submissions work behind Azure internal hosts', async () => {
+  configure();
+  for (const hostname of ['wpvfd.net', 'www.wpvfd.net']) {
+    const calls = services(200, { success: true, action: 'membership', hostname });
+    const ctx = context();
+    await handler(ctx, { method: 'POST', body: fixture(), headers: { origin: `https://${hostname}`, host: 'internal.azurewebsites.net' } });
+    assert.equal(ctx.res.status, 200);
+    assert.equal(calls.length, 2);
+  }
+});
 test('SMTP settings match SMTP2GO and require verified STARTTLS', () => {
   const options = smtp.settings();
   assert.equal(options.host, 'mail.smtp2go.com');
